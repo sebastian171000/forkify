@@ -19,7 +19,6 @@ import { async } from 'regenerator-runtime';
 const controlSevings = function (goTo) {
   if (goTo < 1) return;
   model.changeQuantityServings(goTo);
-  //recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 const controlRecipes = async function () {
@@ -86,9 +85,7 @@ const controlAddRecipe = async function (newRecipe) {
     addRecipeView.renderError(error.message);
   }
 };
-const newFeature = function () {
-  console.log('Welcome to the aplication');
-};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -97,6 +94,5 @@ const init = function () {
   recipeView.handlerServingQuantity(controlSevings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   addRecipeView.addHanlderUpload(controlAddRecipe);
-  newFeature();
 };
 init();
